@@ -12,6 +12,7 @@ lifesat = pd.read_csv("https://raw.githubusercontent.com/ageron/data/refs/heads/
 X = lifesat[['GDP per capita (USD)']].values
 y = lifesat['Life satisfaction'].values
 
+# 데이터 시각화
 lifesat.plot(kind='scatter', grid=True, x='GDP per capita (USD)', y='Life satisfaction')
 plt.axis([23_500, 62_500, 4, 9])
 plt.show()
