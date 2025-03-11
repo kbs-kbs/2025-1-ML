@@ -9,6 +9,7 @@
 |Python|3.11.11|tensorflow.keras.models|2.18.0|Sequential|전체 모델 구조를 정의|
 |||tensorflow.keras.layers|2.18.0|Dense|모델 내부의 개별 층을 구성|
 |||numpy|1.26.4||데이터 불러오기|
+|||matplotlib|||데이터 시각화|
 
 
 
