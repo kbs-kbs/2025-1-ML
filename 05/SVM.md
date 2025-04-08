@@ -6,6 +6,8 @@
 하이퍼 파라미터 C: 마진 오류와 결정 경계의 간격을 조절하는 역할
 C가 클수록 중립지대가 줄어듦
 
+degree: 높을수록 변곡점이 많아짐 
+
 
 ```python
 from sklearn.datasets import load_iris
