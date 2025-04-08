@@ -58,8 +58,12 @@ true, 나머지 false 형태로 데이터 분리할 때 좋음
 >
 > 3. 결론
 > 이 코드에서 LinearSVC를 통해 학습하는 과정은 파인튜닝이 아니라 **모델 초기화 후 학습(training)**입니다. 파인튜닝은 사전 학습된(pre-trained) 모델을 사용하는 경우에만 해당됩니다.
-> 
 > 만약 파인튜닝을 수행하려면, 이미 다른 데이터셋에서 학습된 가중치를 가진 모델을 불러와 이를 새로운 데이터셋에 맞게 조정해야 합니다.
 >
 
 다음주 온라인 수업
+
+코드 작성 안냄
+시험문제에서 코드를 보여주고 왜 하는지, 어떻게 효율적으로 다시 작성할 수 있을지 그래도 각 단계에 대한 주요 코드들은 알고 있어야 할듯
+
+https://github.com/HwangToeMat/MachineLearning-with-Python/blob/master/02)%20SVM%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9C%BC%EB%A1%9C%20FIFA%2019%20%EC%84%A0%EC%88%98%20%ED%8F%AC%EC%A7%80%EC%85%98%20%EC%98%88%EC%B8%A1%ED%95%98%EA%B8%B0/source%20code/SVM%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9C%BC%EB%A1%9C%20FIFA%2019%20%EC%84%A0%EC%88%98%20%ED%8F%AC%EC%A7%80%EC%85%98%20%EC%98%88%EC%B8%A1%ED%95%98%EA%B8%B0.ipynb
