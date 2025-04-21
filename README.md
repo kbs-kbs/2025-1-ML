@@ -101,9 +101,33 @@
    ```
 4. 데이터 정제
    - 특성에 값이 없는 경우 행 제거, 특성 제거, 값을 대체할 수 있음
-   - SimpleImputer는 결측값(NaN 등)이 있는 데이터를 평균, 중앙값, 최빈값 등으로 자동 채워주는 전처리 도구 (숫자형 데이터에서만 작동
+   - SimpleImputer는 결측값(NaN 등)이 있는 데이터를 평균, 중앙값, 최빈값 등으로 자동 채워주는 전처리 도구 (숫자형 데이터에서만 작동)
      ```
      imputer = SimpleImputer(strategy='median')
      imputer.fit_transform(housing_num) # 중앙값 저장(fit) + 채워 넣기(transform)
      ```
-   - 
+   - Ordinal Data(이산적이고 순서가 있는 데이터)를 학습시키기 위해 숫자형 데이터로 변환해주어야 함 `OrdinalEncoder` 사용
+     ```
+     ordinal_encoder = OrdinalEncoder()
+     housing_cat_encoded = ordinal_encoder.fit_transform(housing_cat)
+     ```
+   - Categorical(Nominal) Data(이산적이고 순서가 없는 데이터)도 마찬가지로 숫자형 데이터로 변환
+     ```
+     one_hot_encoder = OneHotEncoder()
+     housing_cat_encoded = one_hot_encoder.fit_transform(housing_cat)
+     ```
+     또는
+     ```
+     pd.get_dummies(df_test)
+     ```
+   - 방사 기저 함수
+5. 모델 훈련
+   ```
+   lin_reg = make_pipeline(preprocessing, LinearRegression())
+   lin_reg.fit(housing, housing_labels)
+   ```
+6. 예측
+   ```
+   housing_predictions = lin_reg.predict(housing)
+   ```
+   housing_predictions와 housing_labels를 비교
