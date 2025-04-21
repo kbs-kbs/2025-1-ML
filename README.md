@@ -131,3 +131,16 @@
    housing_predictions = lin_reg.predict(housing)
    ```
    housing_predictions와 housing_labels를 비교
+   - 성능 측정: `mean_squared_error(housing_labels, housing_predictions, squared=False)`
+   - 교차 검증으로 평가: `tree_rmses = -cross_val_score(tree_reg, housing, housing_labels, scoring="neg_root_mean_squared_error", cv=10)`
+   - 그리드 서치
+     ```
+     grid_search = GridSearchCV(full_pipeline, param_grid, cv=3, scoring='neg_root_mean_squared_error')
+     grid_search.fit(housing, housing_labels)
+     pd.Dataframe(grid_search.cv_results_)
+     ```
+   - 랜덤 서치: 모든 조합 시도하는 대신 랜덤하게
+     ```
+     rnd_search = RandomizedSearchCV(full_pipeline, param_distributions=param_distribs, n_iter=10, cv=3, scoring='neg_root_mean_squared_error', random_state=42)
+     rnd_search.fit(housing, housing_labels)
+     ```
