@@ -83,4 +83,13 @@
    - `housing.hist()`: 이 부분 자세히
    - 테스트 세트 생성: 데이터 스누핑 편향(성능 검증시 실제 성능보다 평가가 높아지는 현상)을 방지하기 위함
    - 이 부분도 중요한지 강의 다시
-   - 
+   - 테스트 세트 생성: 성능 평가의 공정성, 실험의 재현성, 실무의 신뢰성을 위해 테스트 세트를 항상 동일하게 또는 저장해서 사용하는 것이 중요
+     - `train_set, test_set = train_test_split(housing, test_size=0.2, random_state=42)`
+    - 계층적 샘플링: 범주형 특성의 비율을 학습/테스트 세트에서 유지하는 것
+      - `train_set, test_set = train_test_split(housing, stratify=housing["income_cat"] test_size=0.2, random_state=42)`
+      - 또는 `splitter = StratifiedShuffleSplit(n_splits=1, test_size=0.2, random_state=42); for train_index, test_index in splitter.split(housing, housing["income_cat"]):`
+      - 위의 코드의 'n_splits'는 k-fold 교차 검증 시 유용
+      - 숫자형 특성에서도 샘플링 편향을 방지하려면 범주형으로 변환한 후 계층적 샘플링을 하면 됨
+      - `housing["income_cat"] = pd.cut(housing["median_income"], bins=[0., 1.5, 3.0, 4.5, 6., np.inf], labels=[1, 2, 3, 4, 5])`
+      - 행 삭제: `set_.drop("income_cat", inplace=True)` (inplace True 는 원본에 적용 False는 바뀐 데이터프레임 반환)
+      - 데이터프레임 복사: `housing = strat_train_set.copy()`
