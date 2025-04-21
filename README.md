@@ -93,3 +93,17 @@
       - `housing["income_cat"] = pd.cut(housing["median_income"], bins=[0., 1.5, 3.0, 4.5, 6., np.inf], labels=[1, 2, 3, 4, 5])`
       - 행 삭제: `set_.drop("income_cat", inplace=True)` (inplace True 는 원본에 적용 False는 바뀐 데이터프레임 반환)
       - 데이터프레임 복사: `housing = strat_train_set.copy()`
+3. 데이터 시각화
+   - 상관관계 조사: 특성 공학에 활용
+   ```
+   corr_matrix = housing.corr(numeric_only=True)
+   corr_matrix["median_house_value"]
+   ```
+4. 데이터 정제
+   - 특성에 값이 없는 경우 행 제거, 특성 제거, 값을 대체할 수 있음
+   - SimpleImputer는 결측값(NaN 등)이 있는 데이터를 평균, 중앙값, 최빈값 등으로 자동 채워주는 전처리 도구 (숫자형 데이터에서만 작동
+     ```
+     imputer = SimpleImputer(strategy='median')
+     imputer.fit_transform(housing_num) # 중앙값 저장(fit) + 채워 넣기(transform)
+     ```
+   - 
