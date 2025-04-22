@@ -144,3 +144,4 @@
      rnd_search = RandomizedSearchCV(full_pipeline, param_distributions=param_distribs, n_iter=10, cv=3, scoring='neg_root_mean_squared_error', random_state=42)
      rnd_search.fit(housing, housing_labels)
      ```
+  - 오차 행렬: 
