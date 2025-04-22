@@ -120,7 +120,7 @@
      ```
      pd.get_dummies(df_test)
      ```
-   - 방사 기저 함수
+   - 방사 기저 함수: 위도와 경도를 하나의 특성으로 합칠 때
 5. 모델 훈련
    ```
    lin_reg = make_pipeline(preprocessing, LinearRegression())
