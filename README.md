@@ -144,4 +144,28 @@
      rnd_search = RandomizedSearchCV(full_pipeline, param_distributions=param_distribs, n_iter=10, cv=3, scoring='neg_root_mean_squared_error', random_state=42)
      rnd_search.fit(housing, housing_labels)
      ```
-  - 오차 행렬: 
+6. 모델 조정 솔루션
+7. 서비스
+
+---
+## 분류
+  - 오차 행렬: `cross_val_predict(sgd_clf, X_train, y_train_5, cv=3)` cv는 폴드의 개수
+  - `confusion_matrix(y_train_5, y_train_pred)`: array([[TN, FP], [FN, TP])
+  - 틀린걸 틀렸다고 한것: TN 틀린걸 맞다고 한것: FP
+  - 정밀도: TP/TP+FP(긍정한 것 중에서 맞은 비율) `precision_score()`
+  - 재현율: TP/TP+FN(긍정인 것 중에서 맞은 비율) `recall_score()`
+  - F_1 점수: 정밀도와 재현율의 조화 평균 `f1_score(y_train_5, y_train_pred)`
+  - 결정 함수를 사용하여 임계값 조정 -> 높이면 정밀도 올라감, 낮추면 재현도 올라감
+  - ROC 곡선: `fpr, tpr, thresholds = roc_curve(y_train_5, y_train_pred)`
+  - 다중 분류: 범주형을 분류하는 전략
+    1. OvR(OvA)전략: 결정 점수가 가장 높은것
+    2. OvO 전략: 조합별로 결과 낸 뒤 다수결
+  - 정규화: `nomalize=true`
+  - ClassifierChain: 다중 레이블 분류에서 각 라벨별 예측기를 순서대로 연결해, 앞선 라벨의 예측 결과를 뒤의 라벨 분류기 입력에 추가하여 라벨 사이의 상관관계를 효과적으로 활용하는 방법
+
+## SVM
+선을 그어 분리
+- 라지 마진 분류(하드, 소프트)
+- 하드: 이상치 하나도 없게
+- 소프트: 이상치 허용
+- 
